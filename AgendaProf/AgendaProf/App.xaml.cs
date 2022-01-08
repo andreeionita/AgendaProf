@@ -23,7 +23,7 @@ namespace AgendaProf
         public App()
         {
             InitializeComponent();
-            MainPage = new NavigationPage(new ListEntryPage());
+            MainPage = new NavigationPage(new ListEntryPage()) { BarBackgroundColor = Color.Pink };
         }
 
 

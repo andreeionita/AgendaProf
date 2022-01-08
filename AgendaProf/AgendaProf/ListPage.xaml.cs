@@ -40,11 +40,8 @@ namespace AgendaProf
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            var shopl = (NoteList)BindingContext;
-            listView.ItemsSource = await App.Database.GetListStudentsAsync(shopl.ID);
+            var notel = (NoteList)BindingContext;
+            listView.ItemsSource = await App.Database.GetListStudentsAsync(notel.ID);
         }
-
-
-
     }
 }

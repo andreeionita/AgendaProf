@@ -1,13 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="AgendaProf.ListPage">
-    <ContentPage.Content>
+    <ContentPage.Content xmlns:local="clr-namespace:AgendaProf">
         <StackLayout Margin="20">
-            <Editor Placeholder="Enter the description of the shopping list"
+          
+            <Editor Placeholder="Enter grade and the description of the grade "
 Text="{Binding Description}"
-HeightRequest="100" />
-            <Button Text="Add/Choose Item to buy" Clicked="OnChooseButtonClicked"/>
+HeightRequest="100" >
+                <Editor.Behaviors>
+                    <local:ValidationBehaviour />
+                </Editor.Behaviors>
+            </Editor>
+            <Button Text="Add/Choose student" Clicked="OnChooseButtonClicked"/>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />

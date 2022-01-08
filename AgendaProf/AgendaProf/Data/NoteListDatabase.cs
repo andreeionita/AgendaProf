@@ -74,14 +74,15 @@ namespace AgendaProf.Data
                 return _database.InsertAsync(listp);
             }
         }
-        public Task<List<Student>> GetListStudentsAsync(int shoplistid)
+        public Task<List<Student>> GetListStudentsAsync(int notelistid)
         {
             return _database.QueryAsync<Student>(
             "select P.ID, P.Description from Student P"
             + " inner join ListStudent LP"
             + " on P.ID = LP.StudentID where LP.NoteListID = ?",
-            shoplistid);
+           notelistid);
         }
+        
 
     }
 }

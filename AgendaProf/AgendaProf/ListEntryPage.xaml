@@ -3,8 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AgendaProf.ListEntryPage">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add Shopping List"
+        <ToolbarItem Text="Welcome to your personal agenda!" ></ToolbarItem>
+        <ToolbarItem Text="Add Grade"
 Clicked="OnNoteListAddedClicked" />
+        
+        
     </ContentPage.ToolbarItems>
     <ListView x:Name="listView"
 Margin="20"

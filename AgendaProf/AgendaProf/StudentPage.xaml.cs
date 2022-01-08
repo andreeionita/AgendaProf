@@ -23,12 +23,14 @@ namespace AgendaProf
         {
             var student = (Student)BindingContext;
             await App.Database.SaveStudentAsync(student);
+           
             listView.ItemsSource = await App.Database.GetStudentsAsync();
         }
         async void OnDeleteButtonClicked(object sender, EventArgs e)
         {
             var student = (Student)BindingContext;
             await App.Database.DeleteStudentAsync(student);
+           
             listView.ItemsSource = await App.Database.GetStudentsAsync();
         }
         protected override async void OnAppearing()

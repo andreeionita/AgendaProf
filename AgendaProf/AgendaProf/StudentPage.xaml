@@ -4,7 +4,7 @@
              x:Class="AgendaProf.StudentPage">
     <ContentPage.Content>
         <StackLayout Margin="20">
-            <Editor Placeholder="Enter product name" Margin="20"
+            <Editor Placeholder="Enter student name" Margin="20"
 Text="{Binding Description}"
 HeightRequest="50" />
             <Grid>
