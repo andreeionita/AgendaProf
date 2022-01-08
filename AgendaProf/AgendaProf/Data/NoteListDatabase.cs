@@ -15,6 +15,9 @@ namespace AgendaProf.Data
         {
             _database = new SQLiteAsyncConnection(dbPath);
             _database.CreateTableAsync<NoteList>().Wait();
+            _database.CreateTableAsync<Student>().Wait();
+            _database.CreateTableAsync<ListStudent>().Wait();
+
         }
         public Task<List<NoteList>> GetNoteListsAsync()
         {
@@ -41,5 +44,25 @@ namespace AgendaProf.Data
         {
             return _database.DeleteAsync(slist);
         }
+        public Task<int> SaveStudentAsync(Student product)
+        {
+            if (product.ID != 0)
+            {
+                return _database.UpdateAsync(product);
+            }
+            else
+            {
+                return _database.InsertAsync(product);
+            }
+        }
+        public Task<int> DeleteStudentAsync(Student product)
+        {
+            return _database.DeleteAsync(product);
+        }
+        public Task<List<Student>> GetStudentsAsync()
+        {
+            return _database.Table<Student>().ToListAsync();
+        }
+
     }
 }

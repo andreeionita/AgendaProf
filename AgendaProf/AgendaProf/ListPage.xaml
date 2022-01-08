@@ -7,6 +7,7 @@
             <Editor Placeholder="Enter the description of the shopping list"
 Text="{Binding Description}"
 HeightRequest="100" />
+            <Button Text="Add/Choose Item to buy" Clicked="OnChooseButtonClicked"/>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
