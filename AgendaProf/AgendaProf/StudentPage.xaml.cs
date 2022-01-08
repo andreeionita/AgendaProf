@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AgendaProf.Models;
+using AgendaProf.Data;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -36,6 +37,22 @@ namespace AgendaProf
             listView.ItemsSource = await App.Database.GetStudentsAsync();
         }
 
+        async void OnListViewItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            Student p;
+            if (e.SelectedItem != null)
+            {
+                p = e.SelectedItem as Student;
+                var lp = new ListStudent()
+                {
+                    NoteListID = sl.ID,
+                    StudentID = p.ID
+                };
+                await App.Database.SaveListStudentAsync(lp);
+                p.ListStudents = new List<ListStudent> { lp };
+                await Navigation.PopAsync();
+            }
 
+        }
     }
 }

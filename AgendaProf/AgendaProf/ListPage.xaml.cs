@@ -30,6 +30,21 @@ namespace AgendaProf
             await App.Database.DeleteNoteListAsync(slist);
             await Navigation.PopAsync();
         }
+        async void OnChooseButtonClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new StudentPage((NoteList)this.BindingContext)
+            {
+                BindingContext = new Student()
+            });
+        }
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            var shopl = (NoteList)BindingContext;
+            listView.ItemsSource = await App.Database.GetListStudentsAsync(shopl.ID);
+        }
+
+
 
     }
 }
